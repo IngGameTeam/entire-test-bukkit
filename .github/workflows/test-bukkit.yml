@@ -1,9 +1,10 @@
 
 on:
-  issue_comment:
-    types: [created]
+  label:
+    types: [created, deleted]
 jobs:
   test-bukkit:
+    if: github.event.label.name == 'solved'
     runs-on: ubuntu-latest
 
     steps:
