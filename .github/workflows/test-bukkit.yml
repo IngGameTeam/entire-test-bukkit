@@ -7,8 +7,9 @@ env:
   output-suffix: output
 jobs:
   test-bukkit:
-    if: github.event.label.name == 'solved'
-    if: steps.branch-name.outputs.is_default == 'false'
+    if: | 
+      github.event.label.name == 'solved' ||
+      steps.branch-name.outputs.is_default == 'false'
     runs-on: ubuntu-latest
 
     steps:
