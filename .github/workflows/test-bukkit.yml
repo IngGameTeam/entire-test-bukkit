@@ -19,7 +19,7 @@ jobs:
 
       - name: Clone extra-settings Branch
         run: |
-          git clone -b ${{ steps.branch-name.outputs.current_branch }} --single-branch https://${{ github.actor }}@github.com/${{ github.repository }}
+          git clone -b ${{ github.event.label.name }} --single-branch https://${{ github.actor }}@github.com/${{ github.repository }}
           dir_name=$(basename ${{ github.repository }} /)
           cd $dir_name
           rm -rf .git
@@ -30,7 +30,7 @@ jobs:
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git remote add origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git checkout -b ${{ steps.branch-name.outputs.current_branch }}-${{ env.output-suffix }}
+          git checkout -b ${{ github.event.label.name  }}-${{ env.output-suffix }}
           git add .
           git commit -m "install done"
-          git push origin ${{ steps.branch-name.outputs.current_branch }}-${{ env.output-suffix }} --force
+          git push origin ${{ github.event.label.name }}-${{ env.output-suffix }} --force
