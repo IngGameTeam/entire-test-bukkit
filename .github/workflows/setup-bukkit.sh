@@ -17,10 +17,8 @@ function parse_yaml {
 
 
 echo "setup bukkit started"
-
-# bash script args
-
-parse_yaml setup-bukkit.yml
+echo "$(ls)"
+eval $(parse_yaml setup-bukkit.yml)
 
 BUKKIT_FILE_NAME="server.jar"
 # download bukkit
