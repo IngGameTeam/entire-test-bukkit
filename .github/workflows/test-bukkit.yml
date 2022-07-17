@@ -8,7 +8,6 @@ env:
 jobs:
   test-bukkit:
     if: | 
-      github.event.label.name == 'solved' ||
       steps.branch-name.outputs.is_default == 'false'
     runs-on: ubuntu-latest
 
