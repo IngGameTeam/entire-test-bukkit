@@ -10,7 +10,8 @@ function parse_yaml {
       for (i in vname) {if (i > indent) {delete vname[i]}}
       if (length($3) > 0) {
          vn=""; for (i=0; i<indent; i++) {vn=(vn)(vname[i])("_")}
-         eval("%s%s%s=\"%s\"\n", "'$prefix'",vn, $2, $3);
+         # printf("%s%s%s=\"%s\"\n", "'$prefix'",vn, $2, $3);
+         eval "$prefix$vn$2=$3"
       }
    }'
 }
@@ -18,7 +19,7 @@ function parse_yaml {
 
 echo "setup bukkit started"
 
-parse_yaml setup-bukkit.yml
+eval parse_yaml setup-bukkit.yml
 
 BUKKIT_FILE_NAME="server.jar"
 # download bukkit
