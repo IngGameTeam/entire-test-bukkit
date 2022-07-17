@@ -7,8 +7,6 @@ env:
   output-suffix: output
 jobs:
   test-bukkit:
-    if: |
-      steps.branch-name.outputs.is_default == 'false'
     runs-on: ubuntu-latest
 
     steps:
