@@ -24,7 +24,7 @@ jobs:
           cd $dir_name
           rm -rf .git
           ###############
-          bash ${{ secrets.GITHUB_WORKSPACE }}/.github/workflows/setup-bukkit.sh
+          bash $GITHUB_WORKSPACE/.github/workflows/setup-bukkit.sh
           ###############
           git init
           git config --global user.name "${{ github.actor }}"
