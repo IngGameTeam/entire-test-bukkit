@@ -4,17 +4,6 @@ echo "setup bukkit started"
 MC_VERSION=$1
 RAM=$2
 
-# consts
-BUKKIT_DIR="_install-bukkit"
-
-# reinitialize case for GitHub Runner 
-rm -rf $BUKKIT_DIR
-mkdir $BUKKIT_DIR
-
-# --------------
-
-cd $BUKKIT_DIR
-
 # download bukkit
 wget -O purpur.jar https://api.purpurmc.org/v2/purpur/1.19/latest/download
 
