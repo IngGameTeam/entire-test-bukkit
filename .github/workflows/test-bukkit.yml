@@ -1,7 +1,9 @@
 
 on:
-  label:
-    types: [created, deleted]
+  issues:
+    types:
+      - labeled
+
 jobs:
   test-bukkit:
     if: github.event.label.name == 'solved'
