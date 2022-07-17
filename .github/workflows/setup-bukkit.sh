@@ -5,7 +5,7 @@ MC_VERSION=$1
 RAM=$2
 
 # download bukkit
-wget -O purpur.jar https://api.purpurmc.org/v2/purpur/1.19/latest/download
+wget -q -O purpur.jar https://api.purpurmc.org/v2/purpur/1.19/latest/download
 
 # set eula.txt to eula=true
 rm -rf eula.txt
